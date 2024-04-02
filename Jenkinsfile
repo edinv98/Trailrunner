@@ -20,6 +20,12 @@ pipeline {
             steps {
                 // Kör alla testfall för Trailrunner-projektet
                 sh "mvn test"
+             }
+          }
+             stage('Robot Framework Test') {
+            steps {
+                // Kör Robot Framework-test
+                sh "C:\Users\eddev\.jenkins\workspace\edinvelagiclabb"
             }
         }
 
