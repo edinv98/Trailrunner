@@ -2,31 +2,30 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage ('build') {
             steps {
-                // Hämtar senaste kodversionen för den valda grenen
-                checkout scm
+                bat "mvn compile"
             }
         }
-
-        stage('Build') {
+        stage ('test') {
             steps {
-                // Kompilerar Trailrunner-projektet
-                sh "mvn compile"
+                // Kör testerna
+                bat "mvn test"
+                // Publicera testresultaten från Maven
+                junit 'target/surefire-reports/*.xml'
             }
         }
-
-        stage('Test') {
+        stage('Build and Test Python Project') {
             steps {
-                // Kör alla testfall för Trailrunner-projektet
-                sh "mvn test"
+                script {
+                    bat 'python -m robot C:\Users\eddev\.jenkins\workspace\edinvelagiclabb'
+                }
             }
-        }
+            post {
+                always {
+                    robot outputPath: 'C:\Users\eddev\.jenkins\workspace\edinvelagiclabb' , passThreshold: 80.0, unstableThreshold: 70.0, onlyCritical: false
 
-        stage('Post Test') {
-            steps {
-                // Publicerar testresultatet
-                junit 'path/to/test/reports/*.xml'
+                }
             }
         }
     }
