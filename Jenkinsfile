@@ -33,14 +33,14 @@ pipeline {
             steps {
                 script {
                     // Kör Robot Framework-test
-                    bat 'python -m robot C:/Users/eddev.jenkins/workspace/edinvelagiclabb'
+                    bat 'python -m robot C:/Users/eddev/.jenkins\workspace/edinvelagiclabb/selenium'
                 }
             }
             post {
                 always {
                     script {
                         // Publicera resultatet av Robot Framework-testerna
-                        robot outputPath: 'C:/Users/eddev.jenkins/workspace/edinvelagiclabb',
+                        robot outputPath: 'C:/Users/eddev/.jenkins/workspace/edinvelagiclabb/selenium',
                               passThreshold: 80.0,
                               unstableThreshold: 70.0,
                               onlyCritical: false
