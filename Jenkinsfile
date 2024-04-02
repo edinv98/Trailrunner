@@ -33,7 +33,7 @@ pipeline {
             post {
                 always {
                     // Publicera resultatet av Robot Framework-testerna
-                    robot outputPath: 'C:/Users/eddev.jenkins/workspace/edinvelagiclabb/selenium',
+                    robot outputPath: 'C:/Users/eddev.jenkins/workspace/edinvelagiclabb',
                           passThreshold: 80.0,
                           unstableThreshold: 70.0,
                           onlyCritical: false
