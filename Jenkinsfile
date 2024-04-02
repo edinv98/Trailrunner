@@ -12,14 +12,14 @@ pipeline {
         stage('Build') {
             steps {
                 // Kompilerar Trailrunner-projektet
-                sh 'kommandot för att bygga projektet'
+                bat 'kommandot för att bygga projektet'
             }
         }
 
         stage('Test') {
             steps {
                 // Kör alla testfall för Trailrunner-projektet
-                sh 'kommandot för att köra testerna'
+                bat 'kommandot för att köra testerna'
             }
         }
 
