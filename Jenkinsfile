@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Kompilerar Trailrunner-projektet
-                bat "mvn compile"
+                bat "mvn compie"
             }
         }
 
