@@ -33,7 +33,7 @@ pipeline {
         stage('Robot Framework Test') {
             steps {
                 // Kör Robot Framework-test
-                sh "robot C:/Users/eddev.jenkins/workspace/edinvelagiclabb"
+                sh "robot C:/Users/eddev/.jenkins/workspace/edinvelagiclabb/selenium"
             }
         }
     }
