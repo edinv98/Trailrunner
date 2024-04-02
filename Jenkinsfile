@@ -25,11 +25,18 @@ pipeline {
 
 
 
+
         stage('Post Test') {
             steps {
                 // Publicerar testresultatet
                 junit '**/TEST*.xml'
             }
+        }
+        stage('Robot Framework Test') {
+    steps {
+        // Kör Robot Framework-test
+        sh "C:\Users\eddev.jenkins\workspace\edinvelagiclabb"
+    }
         }
     }
 }
