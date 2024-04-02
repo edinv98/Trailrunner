@@ -26,7 +26,7 @@ pipeline {
         stage('Post Test') {
             steps {
                 // Publicerar testresultatet
-                junit '*/TEST.xml'
+                junit '**/TEST*.xml'
             }
         }
     }
