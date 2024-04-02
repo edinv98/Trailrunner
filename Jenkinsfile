@@ -12,14 +12,14 @@ pipeline {
         stage('Build') {
             steps {
                 // Kompilerar Trailrunner-projektet
-                sh 'kommandot för att bygga projektet'
+                sh 'mvn compile'
             }
         }
 
         stage('Test') {
             steps {
                 // Kör alla testfall för Trailrunner-projektet
-                sh 'kommandot för att köra testerna'
+                sh 'mvn test'
             }
         }
 
