@@ -33,7 +33,7 @@ pipeline {
             steps {
                 script {
                     // Kör Robot Framework-test
-                    bat 'python -m robot C:/Users/eddev/.jenkins\workspace/edinvelagiclabb/selenium'
+                    bat 'python -m robot C:/Users/eddev/.jenkins\workspace/edinvelagiclabb'
                 }
             }
             post {
