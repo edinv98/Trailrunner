@@ -22,12 +22,7 @@ pipeline {
                 sh "mvn test"
             }
         }
-stage('Robot Framework Test') {
-    steps {
-        // Kör Robot Framework-test
-        sh '"C:/path/to/robotframework/robot" "C:/Users/eddev/.jenkins/workspace/edinvelagiclabb/selenium"'
-    }
-}
+
 
 
         stage('Post Test') {
