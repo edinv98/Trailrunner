@@ -12,18 +12,14 @@ pipeline {
         stage('Build') {
             steps {
                 // Kompilerar Trailrunner-projektet
-                script {
-                    bat "mvn compile"
-                }
+                bat "mvn compile"
             }
         }
 
         stage('Test') {
             steps {
                 // Kör alla testfall för Trailrunner-projektet
-                script {
-                    bat "mvn test"
-                }
+                bat "mvn test"
                 // Publicera testresultaten från Maven
                 junit 'target/surefire-reports/*.xml'
             }
@@ -31,20 +27,16 @@ pipeline {
 
         stage('Robot Framework Test') {
             steps {
-                script {
-                    // Kör Robot Framework-test
-                    bat 'python -m robot C:/Users/eddev/.jenkins\workspace/edinvelagiclabb'
-                }
+                // Kör Robot Framework-test
+                bat 'python -m robot C:/Users/eddev.jenkins/workspace/edinvelagiclabb/selenium'
             }
             post {
                 always {
-                    script {
-                        // Publicera resultatet av Robot Framework-testerna
-                        robot outputPath: 'C:/Users/eddev/.jenkins/workspace/edinvelagiclabb',
-                              passThreshold: 80.0,
-                              unstableThreshold: 70.0,
-                              onlyCritical: false
-                    }
+                    // Publicera resultatet av Robot Framework-testerna
+                    robot outputPath: 'C:/Users/eddev.jenkins/workspace/edinvelagiclabb/selenium',
+                          passThreshold: 80.0,
+                          unstableThreshold: 70.0,
+                          onlyCritical: false
                 }
             }
         }
