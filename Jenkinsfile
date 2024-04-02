@@ -24,10 +24,11 @@ pipeline {
         }
 stage('Robot Framework Test') {
     steps {
-        // Kör Robot Framework-test med sh
-        sh '"C:/path/to/robotframework/robot" "C:/Users/eddev/.jenkins/workspace/edinvelagiclabb/path/to/robot_tests"'
+        // Kör Robot Framework-test
+        sh '"C:/path/to/robotframework/robot" "C:/Users/eddev/.jenkins/workspace/edinvelagiclabb/selenium"'
     }
 }
+
 
         stage('Post Test') {
             steps {
