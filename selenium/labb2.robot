@@ -34,7 +34,7 @@ ${current_date}    Get Time    now    result_format=%Y-%m-%d
 
 *** Test Cases ***
 car booking
-    User logs into website    ${usermail}    ${pass}
+    User logs into website    edintest
     User chooses date for trip
     User books car
     User enters info
